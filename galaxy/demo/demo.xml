@@ -53,6 +53,7 @@
       <field name="picture"></field>
       <field name="pop">0</field>
       <field name="precio">50</field>
+      <field name="tipo">1</field>
     </record>
 
     <record id="build_type_02" model="galaxy.building_type">
@@ -61,6 +62,7 @@
       <field name="picture"></field>
       <field name="pop">0</field>
       <field name="precio">35</field>
+      <field name="tipo">2</field>
     </record> 
 
     <record id="build_type_03" model="galaxy.building_type">
@@ -69,6 +71,7 @@
       <field name="picture"></field>
       <field name="pop">20</field>
       <field name="precio">100</field>
+      <field name="tipo">3</field>
     </record> 
 
     <record id="build_type_04" model="galaxy.building_type">
@@ -77,6 +80,7 @@
       <field name="picture"></field>
       <field name="pop">10</field>
       <field name="precio">40</field>
+      <field name="tipo">4</field>
     </record> 
 
     <record id="build_type_05" model="galaxy.building_type">
@@ -85,6 +89,7 @@
       <field name="picture"></field>
       <field name="pop">15</field>
       <field name="precio">60</field>
+      <field name="tipo">4</field>
     </record> 
 
     <record id="player_01" model="galaxy.player">

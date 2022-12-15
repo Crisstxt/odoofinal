@@ -98,6 +98,7 @@ class building(models.Model):
     picture = fields.Image()
     population = fields.Integer()
     precio = fields.Integer()
+    tipobuild = fields.Selection([('1','recursos'),('2','militar'),('3','estacion espacial'),('4','comun')])
     planet = fields.Many2one('galaxy.planet', ondelete="cascade")
 
 class building_type(models.Model):
@@ -109,6 +110,7 @@ class building_type(models.Model):
     picture = fields.Image(max_width = 500, max_height = 500)
     pop = fields.Integer()
     precio = fields.Integer()
+    tipo = fields.Selection([('1','recursos'),('2','militar'),('3','estacion espacial'),('4','comun')])
 
     def build(self):  
         for b in self:
@@ -120,13 +122,14 @@ class building_type(models.Model):
                     "description": b.description,
                     "picture": b.picture,
                     "population": b.pop,
-                    "precio": b.precio
+                    "precio": b.precio,
+                    "tipobuild":b.tipo
                 })
                 planet_id.populationtotal += b.pop
                 planet_id.recursos -= b.precio
 
-                if b.name == "Fabrica de Recursos":
-                    planet_id.fabricas += 1    
+                if b.tipo == 1:
+                    planet_id.fabricas += 1        
             else:
                 raise ValidationError("Fondos Insuficientes")
 
