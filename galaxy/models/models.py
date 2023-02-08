@@ -44,6 +44,8 @@ class planet(models.Model):
     tropas = fields.Integer(default=0)
     naves = fields.Integer(default=0)
     casas = fields.Integer(default = 1)
+    cuarteles = fields.Integer(default = 0)
+    estacionespacial = fields.Integer(default = 0)
     recursos = fields.Integer(default = 100)
     fabricas = fields.Integer(default = 1)
     building = fields.One2many('galaxy.building','planet')
@@ -54,6 +56,12 @@ class planet(models.Model):
     def _get_buildings_available(self):
         for p in self:
             p.building_available = self.env['galaxy.building_type'].search([])
+
+    @api.constrains('population')
+    def population_check(self):
+        for planet in self:
+            if planet.population > planet.populationtotal:
+                raise ValidationError("La poblacion disponible no puede ser mas grande que la poblacion total")        
 
 
     @api.model
@@ -70,16 +78,16 @@ class planet(models.Model):
 
     def troopcreate(self):
         for planet in self:
-            if planet.recursos >= 15 or planet.populationtotal <= planet.population + 2:
+            if planet.recursos >= 15 or planet.populationtotal <= planet.population + 2 and planet.cuarteles > 0:
                 planet.tropas = planet.tropas + 1
                 planet.recursos = planet.recursos - 15
                 planet.population = planet.population + 2
             else:
-                raise ValidationError("Fondos Insuficientes o La poblacion esta a tope")
+                raise ValidationError("Fondos Insuficientes o La poblacion esta a tope o no tienes cuarteles")
 
     def navescreate(self):
         for planet in self:
-            if planet.recursos >= 15 or planet.populationtotal <= planet.population + 2:
+            if planet.recursos >= 35 or planet.populationtotal <= planet.population + 6 and planet.estacionespacial > 0:
                 planet.tropas = planet.tropas + 1
                 planet.recursos = planet.recursos - 15
                 planet.population = planet.population + 2
@@ -105,7 +113,7 @@ class building_type(models.Model):
     _name = 'galaxy.building_type'
     _description = 'Building type'    
 
-    name = fields.Char()
+    nonmbre = fields.Char()
     description = fields.Char()
     picture = fields.Image(max_width = 500, max_height = 500)
     pop = fields.Integer()
@@ -118,7 +126,7 @@ class building_type(models.Model):
             if planet_id.recursos >= b.precio:
                 self.env['galaxy.building'].create({
                     "planet": planet_id.id,
-                    "name": b.name,
+                    "name": b.nonmbre,
                     "description": b.description,
                     "picture": b.picture,
                     "population": b.pop,

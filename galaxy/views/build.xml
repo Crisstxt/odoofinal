@@ -13,7 +13,7 @@
                 <field name="picture" widget="image"/>
                 <field name="population"/>
                 <field name="precio"/>
-                <fiedl name="tipobuild"/>               
+                <field name="tipobuild"/>               
               </group>
             </sheet>
           </form>
@@ -30,24 +30,19 @@
                 <field name="picture" widget="image"/>
                 <field name="population"/>
                 <field name="precio"/>  
-                <fiedl name="tipobuild"/>        
+                <field name="tipobuild"/>        
           </tree>
       </field>
     </record>
 
-        <record model="ir.ui.view" id="galaxy.buildtypeform">
+    <record model="ir.ui.view" id="galaxy.buildtypeform">
       <field name="name">estructura type form</field>
       <field name="model">galaxy.building_type</field>
       <field name="arch" type="xml">
           <form>
             <sheet>
               <group>
-                <field name="name"/>
-                <field name="description"/>
-                <field name="picture" widget="image"/>
-                <field name="pop"/>
-                <field name="precio"/>
-                <fiedl name="tipo"/>                 
+                
               </group>
             </sheet>
           </form>
@@ -59,12 +54,7 @@
       <field name="model">galaxy.building_type</field>
       <field name="arch" type="xml">
           <tree>
-                <field name="name"/>
-                <field name="description"/>
-                <field name="picture" widget="image"/>
-                <field name="pop"/>
-                <field name="precio"/>
-                <fiedl name="tipo"/>          
+       
           </tree>
       </field>
     </record>

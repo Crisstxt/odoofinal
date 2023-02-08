@@ -16,10 +16,22 @@
                 <field name="tropas"/>
                 <field name="naves"/>
                 <field name="casas"/>
+                <field name="cuarteles"/>
+                <field name="estacionespacial"/>
                 <field name="recursos"/>
                 <field name="fabricas"/>
                 <field name="population"/>
                 <field name="populationtotal"/>
+                <button name="troopcreate"
+                  type="object"
+                  string="Build"
+                  class="btn btn-primary"
+                >Crear tropa</button>  
+                <button name="navescreate"
+                  type="object"
+                  string="Build"
+                  class="btn btn-primary"               
+                >Crear Nave</button>                      
               </group>
               <notebook>
                 <page string="building">
@@ -81,6 +93,8 @@
                 <field name="tropas"/>
                 <field name="naves"/>
                 <field name="casas"/>
+                <field name="cuarteles"/>
+                <field name="estacionespacial"/>
                 <field name="recursos"/>
                 <field name="fabricas"/>
                 <field name="population"/>

@@ -1,0 +1,160 @@
+<odoo>
+    <data>
+      <!-- explicit list view definition -->
+  
+      <record model="ir.ui.view" id="simarropop.usuario_tree">
+        <field name="name">Usuarios:</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+          <tree>
+            <field name="name"/>
+            <field name="email"/>
+            <field name="contrasenya"/>
+            <field name="monedero"/>
+            <field name="image_1920" widget="image"/>
+            <field name="is_user"/>
+          </tree>
+        </field>
+      </record>
+      
+      <record model="ir.ui.view" id="simarropop.usuario_partner_list">
+        <field name="name">simarropop usuario partner </field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+          <notebook position="inside">
+            <page string = "SimarroPop">
+              <group>
+                 <header>
+            <field name="name" style="background:LIGHTBLUE"  />
+           
+            <field name="name"/>    
+           </header>  
+            <sheet>
+              <group>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="contrasenya"/>
+                <field name="monedero"/>
+                <field name="image_1920" widget="image"/>
+                <field name="is_user"/>
+                <field name="country_id"/>
+                <field name="state_id"/>
+  
+                  <kanban>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="contrasenya"/>
+                <field name="monedero"/>
+                <field name="image_1920" widget="image"/>
+                <field name="usuario_articulo"/>
+                <field name="is_user"/>
+                <field name="country_id"/>
+                <field name="state_id"/>
+  
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card o_kanban_record_has_image_fill ">
+                                <div class="o_kanban_image_fill_left o_kanban_image_full d-none d-md-block"
+                                      t-attf-style="background-image:url('#{kanban_image('res.partner',
+                       'image_1920', record.id.value, placeholder)}')">
+                                </div>
+  
+                                <div class="oe_kanban_details d-flex flex-column">
+                                    <a type="open">
+                                          <h4 class="o_kanban_record_title oe_partner_heading" ><field name="name"/></h4>
+                                           
+                                    </a>
+                                    <ul>
+                                      <li>Nombre: <field name="name"/></li>
+                                      <li>Email: <field name="email"/></li>
+                                      <li>Contrasenya: <field name="contrasenya"/></li>
+                                      <li>monedero: <field name="monedero"/></li>
+                                      <li>perfil: <field name="image_1920"/></li>
+                                      <li>ArticUlos: <field name="usuario_articulo"/></li>
+                                      <li>Pais:  <field name="country_id"/></li>
+                                      <li>Ciudad: <field name="state_id"/></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                 </kanban>
+  
+              </group>
+           </sheet>
+              </group>
+            </page>
+          </notebook> 
+        </field>
+      </record>
+  
+      <record model="ir.ui.view" id="simarropop.usuario_form">
+        <field name="name">Usuarios</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+          <form>
+            <sheet>
+              <group>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="contrasenya"/>
+                <field name="monedero"/>
+                <field name="image_1920" widget="image"/>
+                <field name="usuario_articulo"/>
+                <field name="is_user"/>
+                <field name="country_id"/>
+                <field name="state_id"/>
+  
+                  <kanban>
+                 <field name="name"/>
+                <field name="email"/>
+                <field name="contrasenya"/>
+                <field name="monedero"/>
+                <field name="image_1920" widget="image"/>
+                <field name="usuario_articulo"/>
+                <field name="is_user"/>
+                <field name="country_id"/>
+                <field name="state_id"/>
+  
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card o_kanban_record_has_image_fill ">
+                                <div class="o_kanban_image_fill_left o_kanban_image_full d-none d-md-block"
+                                      t-attf-style="background-image:url('#{kanban_image('res.partner',
+                       'image_1920', record.id.value, placeholder)}')">
+                                </div>
+  
+                                <div class="oe_kanban_details d-flex flex-column">
+                                    <a type="open">
+                                          <h4 class="o_kanban_record_title oe_partner_heading" ><field name="name"/></h4>
+                                           
+                                    </a>
+                                    <ul>
+                                      <li>Nombre: <field name="name"/></li>
+                                      <li>Email: <field name="email"/></li>
+                                      <li>Contrasenya: <field name="contrasenya"/></li>
+                                      <li>monedero: <field name="monedero"/></li>
+                                      <li>perfil: <field name="image_1920"/></li>
+                                      <li>articulos: <field name="usuario_articulo"/></li>
+                                      <li>Pais:  <field name="country_id"/></li>
+                                      <li>Ciudad: <field name="state_id"/></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                 </kanban>
+  
+              </group>
+           </sheet>
+          </form>
+        </field>
+      </record> 
+      <!-- actions opening views on models -->
+  
+  
+  
+    </data>
+  </odoo>

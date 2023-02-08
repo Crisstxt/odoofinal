@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+
+    <record model="ir.ui.view" id="simarropop.articulo_tree">
+      <field name="name">articulos</field>
+      <field name="model">simarropop.articulo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="precio"/>
+          <field name="descripcion"/>
+          <field name="imagen"/>
+          <field name="articulo_categoria"/>
+          <field name="user"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="simarropop.articulo_form">
+      <field name="name">articulos</field>
+      <field name="model">simarropop.articulo</field>
+      <field name="arch" type="xml">
+      <form>
+        <sheet>
+            <group>
+                <field name="name"/>
+                <field name="precio"/>
+                <field name="descripcion"/>
+                 <field name="imagen"/>
+                <field name="articulo_categoria"/>
+                <field name="user"/>
+            </group>
+        </sheet>
+        </form>
+    </field>
+    </record>
+
+    </data>
+</odoo>
