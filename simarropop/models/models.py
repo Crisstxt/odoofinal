@@ -26,6 +26,7 @@ class articulo(models.Model):
     descripcion = fields.Char()
     articulo_categoria = fields.Many2one('simarropop.categoria')
     imagen = fields.One2many('simarropop.foto', 'imagen_articulo')
+    imagen_articulo = fields.Image(max_width = 250, max_height = 250, related='imagen.fotoarticulo') 
     user = fields.Many2one('res.partner')
    
 class categoria(models.Model):
@@ -70,6 +71,21 @@ class venta(models.Model):
     
     cliente = fields.Many2one('res.partner')
     articulo = fields.Many2one('simarropop.articulo')
-    
+   
+class usuario_wizard(models.TransientModel):
+    _name = 'simarropop.usuario_wizard'
+    _description = 'Usuario wizard'
+
+    name = fields.Char()
+    quantity_articles = fields.Integer(compute = "search_ventas")
+
+    def search_ventas(self):
+        for u in self:
+            if(len(u.usuario_articulo) > 0 ):
+                print(u.usuario_articulo)
+                return len(u.usuario_articulo)
 
 
+    def ventas(self):
+        self.name.write({'Articulos del usuario': self.quantity_articles
+                         })

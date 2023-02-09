@@ -14,7 +14,7 @@
     <record model="ir.actions.act_window" id="simarropop.articulo_window">
       <field name="name">Articulos:</field>
       <field name="res_model">simarropop.articulo</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">kanban,tree,form</field>
     </record>
 
     

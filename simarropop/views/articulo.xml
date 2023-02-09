@@ -11,6 +11,7 @@
           <field name="descripcion"/>
           <field name="imagen"/>
           <field name="articulo_categoria"/>
+          <field name="imagen_articulo" widget="image"/>
           <field name="user"/>
         </tree>
       </field>
@@ -26,7 +27,8 @@
                 <field name="name"/>
                 <field name="precio"/>
                 <field name="descripcion"/>
-                 <field name="imagen"/>
+                <field name="imagen"/>
+                <field name="imagen_articulo" widget="image"/>                
                 <field name="articulo_categoria"/>
                 <field name="user"/>
             </group>
@@ -34,6 +36,36 @@
         </form>
     </field>
     </record>
+
+<record model="ir.ui.view" id="simarropop.artiuclo_kanban_view">
+        <field name="name">Articulos:</field>
+        <field name="model">simarropop.articulo</field>
+        <field name="arch" type="xml">
+          <kanban>     
+              <field name="name"/>
+              <field name="id"/>
+              <field name="imagen_articulo" widget="image"/>
+              <field name="precio"/>                         
+              <templates>
+                <t t-name="kanban-box">
+                  <div class="oe_articulo_vignette">
+                  <img class="oe_kanban_image" t-att-alt="record.name.value"
+                    t-att-src="kanban_image('simarropop.articulo', 'imagen_articulo', record.id.value)" />
+
+                      <div class="oe_articulo_desc">
+                        <h4>
+                          <a type="edit">
+                          <field name="name"/>
+                          </a>
+                          <field name="precio"/>
+                        </h4>
+                      </div>
+                  </div>
+                </t>
+              </templates>
+          </kanban>
+        </field>
+      </record> 
 
     </data>
 </odoo>
