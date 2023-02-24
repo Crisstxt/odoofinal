@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+  
+      <record model="ir.ui.view" id="simarropop.message_tree">
+        <field name="name">message:</field>
+        <field name="model">simarropop.message</field>
+        <field name="arch" type="xml">
+          <tree>
+            <field name="usuario"/>
+            <field name="texto"/>
+            <field name="date"/>
+          </tree>
+        </field>
+      </record>
+  
+      <record model="ir.ui.view" id="simarropop.message_form">
+        <field name="name">message:</field>
+        <field name="model">simarropop.message</field>
+        <field name="arch" type="xml">
+          <form>
+            <sheet>
+              <group>
+            <field name="usuario"/>
+            <field name="texto"/>
+            <field name="date"/>
+              </group>
+           </sheet>
+          </form>
+        </field>
+      </record> 
+  
+  
+    </data>
+  </odoo>

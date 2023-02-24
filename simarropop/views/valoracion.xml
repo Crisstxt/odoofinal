@@ -9,6 +9,7 @@
             <field name="name"/>
             <field name="descripcion"/>
             <field name="estrellas"/>
+            <field name="num_estrellas"/>
             <field name="valoracion_usuario"/>
           </tree>
         </field>
